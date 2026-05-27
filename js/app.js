@@ -1,6 +1,7 @@
 class Producto {
   #precio;
   #stock;
+  
   constructor(nombre, marca, precio, stock, imagen) {
     this.nombre = nombre;
     this.marca  = marca;
@@ -12,28 +13,21 @@ class Producto {
   descripcion() {
     return `${this.nombre} — ${this.marca}`;
   }
- 
-  get precio() {
-    return this.#precio;
+
+  get precio() { return this.#precio; }
+  set precio(v) {
+    if (typeof v !== 'number' || v <= 0) {
+      throw new Error(`Precio inválido: ${v}. Debe ser un número mayor a 0.`);
+    }
+    this.#precio = v;
   }
   
-  set precio(nuevoPrecio) {
-    if (nuevoPrecio < 0) {
-      console.error('El precio no puede ser negativo.');
-      return;
+  get stock() { return this.#stock; }
+  set stock(v) {
+    if (!Number.isInteger(v) || v < 0) {
+      throw new Error(`Stock inválido: ${v}. Debe ser un número entero mayor o igual a 0.`);
     }
-    this.#precio = nuevoPrecio;
-  }
-
-  get stock() {
-    return this.#stock;
-  }
-  set stock(nuevoStock) {
-    if (nuevoStock < 0) {
-      console.error('El stock no puede ser negativo.');
-      return;
-    }
-    this.#stock = nuevoStock;
+    this.#stock = v;
   }
 
   get estaDisponible() {
@@ -54,6 +48,7 @@ class Producto {
   }
 }
 
+
 class Notebook extends Producto {
   constructor(nombre, marca, precio, stock, imagen, procesador, ramGB, almacenamientoGB) {
     super(nombre, marca, precio, stock, imagen);
@@ -66,8 +61,8 @@ class Notebook extends Producto {
   }
 }
 
-class celular extends Producto {
-  constructor(nombre, marca, precio, stock, imagen, pantallaPulgadas, bateriaMah, camaraMp,almacenamientoGB) {
+class Celular extends Producto { // Buena práctica: Primera letra en Mayúscula para Clases
+  constructor(nombre, marca, precio, stock, imagen, pantallaPulgadas, bateriaMah, camaraMp, almacenamientoGB) {
     super(nombre, marca, precio, stock, imagen);
     this.pantallaPulgadas = pantallaPulgadas;
     this.bateriaMah = bateriaMah;
@@ -79,11 +74,11 @@ class celular extends Producto {
   }
 }
 
-class auricular extends Producto {
-  constructor(nombre, marca, precio, stock, imagen, tipo, wirelles, cancelacionRuido) {
+class Auricular extends Producto {
+  constructor(nombre, marca, precio, stock, imagen, tipo, wireless, cancelacionRuido) {
     super(nombre, marca, precio, stock, imagen);
     this.tipo = tipo;
-    this.wireless = wirelles;
+    this.wireless = wireless;
     this.cancelacionRuido = cancelacionRuido;
   }
   fichatecnica() {
@@ -91,7 +86,7 @@ class auricular extends Producto {
   }
 }
 
-class monitor extends Producto {
+class Monitor extends Producto {
   constructor(nombre, marca, precio, stock, imagen, pulgadas, resolucion, panelTipo, hz) {
     super(nombre, marca, precio, stock, imagen);
     this.pulgadas = pulgadas;
@@ -103,8 +98,9 @@ class monitor extends Producto {
     return `Nombre: ${this.nombre}, pulgadas: ${this.pulgadas}`;
   }
 }
+
 class PCEscritorio extends Producto {
-  constructor(nombre, marca, precio, stock, imagen, procesador, ramGB, almacenamientoGB, placaVideo,fuenteW) {
+  constructor(nombre, marca, precio, stock, imagen, procesador, ramGB, almacenamientoGB, placaVideo, fuenteW) {
     super(nombre, marca, precio, stock, imagen);
     this.procesador = procesador;
     this.ramGB = ramGB;
@@ -117,9 +113,6 @@ class PCEscritorio extends Producto {
   }
 }
 
-
-// ── Catálogo de productos ────────────────────────────────────
-// Array global — definido fuera de cualquier función o clase
 const catalogo = [
   new Producto(
     'MacBook Air M2', 'Apple', 2100000, 4,
@@ -143,3 +136,61 @@ const catalogo = [
   ),
 ];
 
+function crearTarjeta(producto) {
+
+  // primero defino la etiqueta HTML que creo, luego defino
+  // su clase (si quiero aplicarle estilos mediante CSS)
+  // y por último el valor que toma (marca, precio, nombre, etc)
+
+// document hace referencia al HTML
+  const article = document.createElement('article');
+  article.className = 'tarjeta'
+
+  // Imagen del producto
+ // defino su src (url) y el texto alternativo (alt)
+  const img = document.createElement('img');
+  img.src     = producto.imagen;
+  img.alt     = producto.nombre;
+
+  // Nombre
+  const h3 = document.createElement('h3');
+  h3.textContent = producto.nombre;
+
+  const precio = document.createElement('p');
+  precio.className = 'precio';
+  precio.textContent = producto.precioFormateado;
+
+  // Características básicas con lista
+  const ul = document.createElement('ul');
+
+  const liMarca = document.createElement('li');
+  liMarca.textContent = `Marca: ${producto.marca}`;
+
+  const liStock = document.createElement('li');
+  liStock.textContent = producto.estaDisponible
+    ? `Stock: ${producto.stock} unidades`
+    : 'Sin stock';
+
+// el appendChild nos permite vincular el código HTML creado en JS en nuestro HTML
+  ul.appendChild(liMarca);
+  ul.appendChild(liStock);
+
+  // Botón
+  const btn = document.createElement('button');
+  btn.textContent = producto.estaDisponible ? 'Agregar al carrito' : 'Sin stock';
+  btn.disabled    = !producto.estaDisponible;
+
+  // Armar la tarjeta
+  const info = document.createElement('div');
+  info.className = 'tarjeta-info';
+  info.appendChild(h3);
+  info.appendChild(precio);
+  info.appendChild(ficha);
+  info.appendChild(ul);
+  info.appendChild(btn);
+
+  article.appendChild(img);
+  article.appendChild(info);
+
+  return article;
+}
