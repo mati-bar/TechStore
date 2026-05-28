@@ -116,7 +116,7 @@ class PCEscritorio extends Producto {
 const catalogo = [
   new Producto(
     'MacBook Air M2', 'Apple', 2100000, 4,
-    'https://images.unsplash.com/photo-1611186871525-5a0c4f200c34?w=400'
+    'https://http2.mlstatic.com/D_NQ_NP_997020-MLA98773850565_112025-O.webp'
   ),
   new Producto(
     'iPhone 15', 'Apple', 1650000, 12,
@@ -134,7 +134,9 @@ const catalogo = [
     'PC Gamer Entry Level', 'Armada', 1200000, 5,
     'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400'
   ),
+
 ];
+
 
 function crearTarjeta(producto) {
 
@@ -165,20 +167,27 @@ function crearTarjeta(producto) {
 
   const liMarca = document.createElement('li');
   liMarca.textContent = `Marca: ${producto.marca}`;
+  liMarca.className = 'marca';
 
   const liStock = document.createElement('li');
   liStock.textContent = producto.estaDisponible
     ? `Stock: ${producto.stock} unidades`
     : 'Sin stock';
+    liStock.className = 'stock';
+
+  const ficha = document.createElement('p');
+  ficha.textContent = producto.fichatecnica();
 
 // el appendChild nos permite vincular el código HTML creado en JS en nuestro HTML
   ul.appendChild(liMarca);
   ul.appendChild(liStock);
+  ul.appendChild(ficha);
 
   // Botón
   const btn = document.createElement('button');
-  btn.textContent = producto.estaDisponible ? 'Agregar al carrito' : 'Sin stock';
+  btn.textContent = producto.estaDisponible ? 'Agregar al carrito 🛒' : 'Sin stock';
   btn.disabled    = !producto.estaDisponible;
+  btn.className   = 'btn-agregar';
 
   // Armar la tarjeta
   const info = document.createElement('div');
@@ -194,3 +203,5 @@ function crearTarjeta(producto) {
 
   return article;
 }
+const contenedorProductos = document.getElementById('productos');
+catalogo.forEach(producto => contenedorProductos.appendChild(crearTarjeta(producto)));
