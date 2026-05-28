@@ -65,6 +65,61 @@ nav a {
     border-radius: 4px;
 }
 
+.tarjeta button:hover{
+    background-color: #0074b8d0;
+}
+
+.tarjeta :disabled {
+    background-color: #333;
+    cursor: not-allowed;
+}
+
+.tarjeta {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.tarjeta img {
+    width: 50%;
+    height: auto;
+}
+
+.itemOfertas {
+    list-style: none;
+    
+}
+#catalogo h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+
+
+.itemNavegacion{
+    text-decoration: none;
+    list-style: none;
+}
+
+.marca{
+    list-style: none;
+}
+
+.stock{
+    list-style: none;
+}
+
+.btn-agregar{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1% 6%;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 .tarjeta {
     border: 1px solid #ddd;
     border-radius: 8px;
