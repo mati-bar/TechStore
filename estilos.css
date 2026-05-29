@@ -4,15 +4,14 @@
   padding: 0;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 main {
   padding: 32px 24px;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.ficha-tecnica {
-  font-size: 14px;
-  color: #555;
 }
 
 header {
@@ -22,10 +21,14 @@ header {
   align-items: center; 
   justify-content: space-between; 
   margin-bottom: 30px; 
-  padding: 10px 20px;
+  padding: 15px 20px; 
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+h1 {
+  font-size: 24px;
 }
 
 .navegacion ul {
@@ -42,145 +45,117 @@ header {
   font-weight: bold;
 }
 
-h1 {
-  font-size: 24px;
-}
-
-nav {
-  margin-top: 8px;
-}
-
 nav a {
   color: #fff;
   text-decoration: none;
-  margin-right: 16px;
-}
-
-#catalogo h2 {
-  font-size: 20px;
-  margin-bottom: 16px;
-}
-
-
-
-.itemNavegacion{
-    text-decoration: none;
-    list-style: none;
-    
-}
-
-.marca{
-    list-style: none;
-}
-
-.stock{
-    list-style: none;
-}
-
-.btn-agregar{
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 1% 6%;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.tarjeta button:hover{
-    background-color: #0074b8d0;
-}
-
-.tarjeta :disabled {
-    background-color: #333;
-    cursor: not-allowed;
-}
-
-.tarjeta {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.tarjeta img {
-    width: 50%;
-    height: auto;
-}
-
-.itemOfertas {
-    list-style: none;
-    
-}
-#catalogo h2 {
-  font-size: 20px;
-  margin-bottom: 16px;
-}
-
-
-
-.itemNavegacion{
-    text-decoration: none;
-    list-style: none;
-}
-
-.marca{
-    list-style: none;
-}
-
-.stock{
-    list-style: none;
-}
-
-.btn-agregar{
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 1% 6%;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.tarjeta {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.tarjeta img {
-    width: 50%;
-    height: auto;
-}
-
-.itemOfertas {
-    list-style: none;
-    
-}
-
-.contenedorFooter {
-    
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-}
-
-.contenedorFooter h6{
-    font-size: 20px;
-    color: black;
 }
 
 #catalogo {
-    max-width: 800px;
-    margin: 40px;
-    padding: 0 20px;
+  max-width: 100%;
+  margin: 40px; 
+  padding: 0 20px;
 }
 
-#ofertas {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
+#catalogo h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  text-align: center; 
 }
+
+#productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; 
+
+}
+.tarjeta {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  overflow: hidden;
+  flex: 0 1 300px; 
+  background-color: #fff;
+}
+
+.tarjeta img {
+  width: 60%;      
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+.ficha-tecnica {
+  font-size: 14px;
+  color: #555;
+}
+
+.marca {
+  list-style: none;
+} 
+.stock {
+  list-style: none;
+}
+
+
+.btn-agregar {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px; 
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.tarjeta button:hover {
+  background-color: #0074b8d0;
+}
+
+.tarjeta button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+#Ofertas { 
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+#Ofertas h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.itemOfertas {
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #f4f4f4;
+  border-top: 1px solid #ddd;
+}
+
+.contenedorFooter {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.contenedorFooter h6 {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  margin: 0;
+}
+
+.tarjeta img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
