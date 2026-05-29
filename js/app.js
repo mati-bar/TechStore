@@ -171,12 +171,12 @@ function crearTarjeta(producto) {
 
   const liStock = document.createElement('li');
   liStock.textContent = producto.estaDisponible
-    ? `Stock: ${producto.stock} unidades`
-    : 'Sin stock';
+    ? `Stock: ${producto.stock} unidades`: 'Sin stock';
     liStock.className = 'stock';
 
   const ficha = document.createElement('p');
   ficha.textContent = producto.fichatecnica();
+  ficha.className = 'ficaTecnica'
 
 // el appendChild nos permite vincular el código HTML creado en JS en nuestro HTML
   ul.appendChild(liMarca);
