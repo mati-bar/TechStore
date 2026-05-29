@@ -113,10 +113,12 @@ class PCEscritorio extends Producto {
   }
 }
 
+
+
 const catalogo = [
   new Producto(
     'MacBook Air M2', 'Apple', 2100000, 4,
-    'https://http2.mlstatic.com/D_NQ_NP_997020-MLA98773850565_112025-O.webp'
+    'https://techcrunch.com/wp-content/uploads/2022/07/CMC_1580.jpg?w=1024'
   ),
   new Producto(
     'iPhone 15', 'Apple', 1650000, 12,
@@ -134,6 +136,26 @@ const catalogo = [
     'PC Gamer Entry Level', 'Armada', 1200000, 5,
     'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400'
   ),
+  new Producto(
+    'Samsung Galaxy S24 Ultra', 'Samsung', 1950000, 8,
+    'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400'
+  ),
+  new Producto(
+    'Teclado Mecanico Redragon Kumara K552', 'Redragon', 45000, 15,
+    'https://images.unsplash.com/photo-1595225476474-87563907a212?w=400'
+  ),
+  new Producto(
+    'PlayStation 5 Slim', 'Sony', 1100000, 3,
+    'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400'
+  ),
+  new Producto(
+    'iPad Air M1', 'Apple', 1250000, 7,
+    'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400'
+  ),
+  new Producto(
+    'Mouse Logitech G305 LightSpeed', 'Logitech', 55000, 20,
+    'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400'
+  )
 
 ];
 
@@ -153,6 +175,7 @@ function crearTarjeta(producto) {
   const img = document.createElement('img');
   img.src     = producto.imagen;
   img.alt     = producto.nombre;
+  img.className = 'imagenCard'
 
   // Nombre
   const h3 = document.createElement('h3');
@@ -171,12 +194,13 @@ function crearTarjeta(producto) {
 
   const liStock = document.createElement('li');
   liStock.textContent = producto.estaDisponible
-    ? `Stock: ${producto.stock} unidades`: 'Sin stock';
+    ? `Stock: ${producto.stock} unidades`
+    : 'Sin stock';
     liStock.className = 'stock';
 
   const ficha = document.createElement('p');
   ficha.textContent = producto.fichatecnica();
-  ficha.className = 'ficaTecnica'
+
 
 // el appendChild nos permite vincular el código HTML creado en JS en nuestro HTML
   ul.appendChild(liMarca);
