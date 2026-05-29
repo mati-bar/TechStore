@@ -18,8 +18,28 @@ main {
 header {
   background-color: #333;
   color: #fff;
-  padding: 16px 24px;
-  
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  margin-bottom: 30px; 
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navegacion ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 25px; 
+}
+
+.itemNavegacion a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 h1 {
@@ -46,6 +66,7 @@ nav a {
 .itemNavegacion{
     text-decoration: none;
     list-style: none;
+    
 }
 
 .marca{
@@ -137,3 +158,30 @@ nav a {
     list-style: none;
     
 }
+
+.contenedorFooter {
+    
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.contenedorFooter h6{
+    font-size: 20px;
+    color: black;
+}
+
+#catalogo {
+    max-width: 800px;
+    margin: 40px;
+    padding: 0 20px;
+}
+
+#ofertas {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
