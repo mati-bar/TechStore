@@ -12,6 +12,7 @@ main {
   padding: 32px 24px;
   max-width: 1200px;
   margin: 0 auto;
+  color: #000000;
 }
 
 header {
@@ -45,6 +46,7 @@ h1 {
   font-weight: bold;
 }
 
+
 nav a {
   color: #fff;
   text-decoration: none;
@@ -77,6 +79,14 @@ nav a {
   overflow: hidden;
   flex: 0 1 300px; 
   background-color: #fff;
+  width: 300px;
+  box-shadow: 0 4 6px rgba(0, 0, 0, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15 20px rgba(0, 0, 0, 1);
 }
 
 .tarjeta img {
@@ -157,5 +167,75 @@ footer {
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
+}
+
+/*formulario - login*/
+
+form{
+  background-color: white;
+  border-radius:  12px;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 6px rgba(0,0 ,0 ,0.05 );
+  transition: transform 0.2s;
+  overflow: hidden;
+  width: 400px;
+  
+}
+.campo {
+    margin-bottom: 12px;
+    width: 100%;
+    
+}
+.campo label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.campo input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.link-pie {
+  margin-top: 15px;
+  font-size: 14px;
+}
+form button {
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: bold;
+}
+form button:hover {
+  background-color: #666;
+}
+
+
+.contenedorFooter-login{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  
+}
+.contenedorFooter-login h6 {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  margin: 0;
 }
 
