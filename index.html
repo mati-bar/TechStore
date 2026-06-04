@@ -1,36 +1,23 @@
 <!DOCTYPE html>
-<!-- Indica que es HTML5. Siempre primera línea. -->
- 
 <html lang='es'>
-<!-- Elemento raíz. lang='es' ayuda a lectores de pantalla y buscadores. -->
- 
   <head>
-  <!-- Metadatos: el navegador los necesita pero no los muestra al usuario -->
- 
-    <meta charset='UTF-8'>
-    <!-- Codificación de caracteres: soporta tildes, ñ, emojis -->
- 
+    <meta charset='UTF-8'> 
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <!-- Sin esto, en celular la página se ve muy pequeña -->
- 
     <title>TechStore - Tu tienda de tecnología</title>
-    <!-- Aparece en la pestaña del navegador y en Google -->
- 
     <link rel='stylesheet' href='estilos.css'>
-    <!-- Vincula el archivo CSS. El path es relativo al index.html -->
-    <!-- estilos.css debe estar en la misma carpeta que index.html -->
   </head>
  
   <body>
-  <!-- Todo lo visible va acá -->
    <header>
-      <h1>TechStore</h1>
+      <h1>🖥️TechStore</h1>
 
       <nav class="navegacion">
         <ul >
-          <li class="itemNavegacion"><a  href='#Inicio'>Inicio</a></li>
+          <li class="itemNavegacion"><a  href='index.html'>Inicio</a></li>
           <li class="itemNavegacion"><a href='#Productos'>Productos</a></li>
           <li class="itemNavegacion"><a href='#Contacto'>Contacto</a></li>
+          <li class="itemNavegacion"><a href='login.html'>Login</a></li>
+          <li class="itemNavegacion"><a href='#carrito'>🛒</a></li>
         </ul>
       </nav>
    </header>
@@ -61,10 +48,6 @@
         </div>
       </footer>
     <script src='js/app.js'></script>
-
-    <!-- JS SIEMPRE al final del body, antes de la etiqueta de cierre -->
-    <!-- Si va en el head, el script corre antes de que exista el HTML -->
-    <!-- y document.getElementById('productos') devuelve null -->
   </body>
  
 </html>
