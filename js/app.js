@@ -232,7 +232,6 @@ function crearTarjeta(producto) {
   info.appendChild(ul);
   info.appendChild(btn);
   info.appendChild(btnDetalle);
-
   article.appendChild(img);
   article.appendChild(info);
 
@@ -303,3 +302,38 @@ async function cargarProductos() {
   }
 }
 cargarProductos()
+
+// ── Eventos ───────────────────────────────────────────────────
+
+// Botones de categoría
+botones.forEach(btn => {
+  btn.addEventListener('click', () => {
+    categoriaActiva = btn.dataset.categoria;
+    sincronizarBotones(categoriaActiva);
+    guardarFiltro(categoriaActiva);
+    aplicarFiltros();
+  });
+});
+
+// Buscador
+buscador.addEventListener('input', () => {
+  textoBusqueda = buscador.value.toLowerCase().trim();
+  aplicarFiltros();
+});
+
+// Limpiar búsqueda
+btnLimpiarBusqueda.addEventListener('click', () => {
+  buscador.value = '';
+  textoBusqueda  = '';
+  aplicarFiltros();
+});
+
+// Limpiar todos los filtros
+btnLimpiarFiltros.addEventListener('click', () => {
+  categoriaActiva = 'todos';
+  textoBusqueda   = '';
+  buscador.value  = '';
+  guardarFiltro('todos');
+  sincronizarBotones('todos');
+  aplicarFiltros();
+});
