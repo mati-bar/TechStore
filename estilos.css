@@ -120,14 +120,20 @@ nav a {
 .tarjeta .btn-detalle {
   display: block;
   width: 100%;
-  background-color: #007bff;
-  color: white;
-  border: none;
   padding: 10px 16px;
   cursor: pointer;
   border-radius: 4px;
   margin-top: 10px;
   font-weight: bold;
+  background-color: white;
+  color: #007bff;
+  border: 2px solid #007bff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tarjeta .btn-detalle:hover {
+  background-color: #007bff;
+  color: white;
 }
 
 .ficha-tecnica {
@@ -197,8 +203,8 @@ form{
   
 }
 .campo {
-    margin-bottom: 12px;
-    width: 100%;
+  margin-bottom: 12px;
+  width: 100%;
     
 }
 .campo label {
@@ -293,4 +299,93 @@ form button:hover {
   font-size: 1.25rem;
   color: #2ecc71;
   font-weight: bold;
+}
+/* Contenedor principal del menú de filtros */
+.campo-busqueda, #botones-filtro {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  font-family: sans-serif;
+}
+
+/* --- Buscador por Nombre --- */
+.campo-busqueda {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.campo-busqueda input {
+  width: 100%;
+  padding: 10px 35px 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.campo-busqueda input:focus {
+  border-color: #007bff;
+}
+
+/* Botón ✕ dentro del buscador */
+.btn-limpiar {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-limpiar:hover {
+  color: #333;
+}
+
+/* --- Botones de Categorías --- */
+.btn-filtro {
+  background-color: #f1f3f5;
+  color: #495057;
+  border: 1px solid #dee2e6;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Efecto Hover */
+.btn-filtro:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+/* Estado Activo (Categoría seleccionada) */
+.btn-filtro.activo {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+/* Botón Limpiar Filtros */
+.btn-limpiar-filtros {
+  background: none;
+  border: 1px dashed #dc3545;
+  color: #dc3545;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.btn-limpiar-filtros:hover {
+  background-color: #dc3545;
+  color: white;
 }
