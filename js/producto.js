@@ -27,3 +27,56 @@ async function cargarDetalle() {
 }
 
 cargarDetalle();
+// ── localStorage ──────────────────────────────────────────────
+function guardarFiltro(categoria) {
+  if (categoria && categoria !== 'todos') {
+    localStorage.setItem('filtroActivo', categoria);
+  } else {
+    localStorage.removeItem('filtroActivo');
+  }
+}
+
+// window.addEventListener('beforeunload', () => {
+//   localStorage.removeItem('filtroActivo');
+// });
+
+// En cada link del nav que NO sea productos.html
+// agregar un listener que limpie al hacer clic
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    // if (!link.href.includes('productos.html')) {
+      localStorage.removeItem('filtroActivo');
+    // }
+  });
+});
+
+// ── Sincronizar botones ───────────────────────────────────────
+function sincronizarBotones(categoria) {
+  botones.forEach(b => {
+    b.classList.toggle('activo', b.dataset.categoria === categoria);
+  });
+}
+
+// ── Filtrado ──────────────────────────────────────────────────
+function aplicarFiltros() {
+  let resultado = catalogo_completo;
+
+  if (categoriaActiva !== 'todos') {
+    resultado = resultado.filter(p => {
+      const tipo = p.constructor.name.toLowerCase();
+      if (categoriaActiva === 'pc_escritorio') return tipo === 'pcescritorio';
+      return tipo === categoriaActiva;
+    });
+  }
+
+  if (textoBusqueda) {
+    resultado = resultado.filter(p =>
+      p.nombre.toLowerCase().includes(textoBusqueda) ||
+      p.marca.toLowerCase().includes(textoBusqueda)
+    );
+  }
+
+  renderizar(resultado);
+  contador.textContent = `${resultado.length} producto${resultado.length !== 1 ? 's' : ''}`;
+}
+

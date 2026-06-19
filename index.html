@@ -9,12 +9,14 @@
  
   <body>
    <header>
-      <h1>🖥️TechStore</h1>
+      <h1>🖥️TechStore
+        
+      </h1>
 
       <nav class="navegacion">
         <ul >
           <li class="itemNavegacion"><a  href='index.html'>Inicio</a></li>
-          <li class="itemNavegacion"><a href='#Productos'>Productos</a></li>
+          <li class="itemNavegacion"><a href='#producto'>Productos</a></li>
           <li class="itemNavegacion"><a href='#Contacto'>Contacto</a></li>
           <li class="itemNavegacion"><a href='login.html'>Login</a></li>
           <li class="itemNavegacion"><a href='#carrito'>🛒</a></li>
@@ -25,6 +27,22 @@
       <main>  
         <section id='catalogo'>
           <h2>Catalogo de productos</h2>
+          <!-- Buscador por nombre -->
+      <div class="campo-busqueda">
+        <input type="text" id="buscador" placeholder="Buscar por nombre o marca...">
+        <button id="btn-limpiar-busqueda" class="btn-limpiar">✕</button>
+      </div>
+
+      <!-- Botones de categoría -->
+      <div id="botones-filtro">
+        <button class="btn-filtro activo" data-categoria="todos">Todos</button>
+        <button class="btn-filtro" data-categoria="notebook">Notebooks</button>
+        <button class="btn-filtro" data-categoria="celular">Celulares</button>
+        <button class="btn-filtro" data-categoria="auricular">Auriculares</button>
+        <button class="btn-filtro" data-categoria="monitor">Monitores</button>
+        <button class="btn-filtro" data-categoria="pc_escritorio">PCs</button>
+        <button id="btn-limpiar-filtros" class="btn-limpiar-filtros">✕ Limpiar filtros</button>
+      </div>
           <div id="productos"></div>
         </section>
 
@@ -48,6 +66,7 @@
         </div>
       </footer>
     <script src='js/app.js'></script>
+    <script src='js/producto.js'></script>
   </body>
  
 </html>
